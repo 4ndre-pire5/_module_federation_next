@@ -1,0 +1,11 @@
+.button{
+    display: flex;
+    padding: 5px;
+    background-color: blueviolet;
+    color:rgb(255, 234, 0);
+    align-content: center;
+    border-radius: 8px;
+    border-style: double;
+    font-size: larger;
+    margin-bottom: 15%;
+}
