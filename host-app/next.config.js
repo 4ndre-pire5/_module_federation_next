@@ -1,8 +1,11 @@
 const NextFederationPlugin = require('@module-federation/nextjs-mf');
+/** @type {import('next').NextConfig} */
 
-module.exports = {
-  webpack(config, options) {
+const nextConfig = {
+  reactStrictMode: true,
+  webpack: (config, options) => {
     const { isServer } = options;
+    config.experiments = { topLevelAwait: true };
     config.plugins.push(
       new NextFederationPlugin({
         name: 'host-app',
@@ -11,14 +14,16 @@ module.exports = {
         },
         filename: 'static/chunks/remoteEntry.js',
         exposes: {
-          './navbar': './components/navbar/index.tsx',
+          '.footer': '/components/Footer.js',
+          '.nav': '/components/Nav.js'
         },
         shared: {
           // whatever else
         },
       })
     );
-
     return config;
-  },
-};
+  }
+}
+
+module.exports = nextConfig
