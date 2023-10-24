@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
-import Button from '../../components/button'
 import dynamic from 'next/dynamic'
 
-const Nav = dynamic(()=> import("../../../host-app/components/navbar/mainConteiner"))
+const Nav = dynamic(() => import("../../../host-app/components/Nav"))
+const Footer = dynamic(() => import("../../../host-app/components/Footer"))
 
 export default function Home() {
   return (
@@ -11,11 +11,12 @@ export default function Home() {
       <Head>
         <title>Remote App</title>
       </Head>
-      <Nav>Esta é a navbar em Remote Page</Nav>
+
+      <Nav>This is the nav in Remote Page</Nav>
       <main className={`${styles.h1} `}>
         <h1>Esta a página Remote</h1>
-        <Button />
       </main>
+      <Footer></Footer>
     </>
   )
 }
